@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Project (Godot 4)",
+            "type": "lldb", // type provided by CodeLLDB extension
+            "request": "launch",
+            "preLaunchTask": "rust: cargo build",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                // "-e", // run editor (remove this to launch the scene directly)
+                "-w", // windowed mode
+                "--path",
+                "../godot-rust"
+            ],
+            "linux": {
+                "program": "/usr/local/bin/godot4",
+            },
+            "windows": {
+                "program": "C:\\Program Files\\Godot\\Godot_v4.1.X.exe",
+            },
+            "osx": {
+                // NOTE: on macOS the Godot.app needs to be manually re-signed
+                // to enable debugging (see below)
+                "program": "/Users/zak/Applications/Godot/Godot4.3.app",
+            }
+        },
+        {
+            "name": "Attach Rust",
+            "type": "lldb",
+            "request": "attach",
+            "pid": "${command:pickMyProcess}"
+        }
+    ],
+}

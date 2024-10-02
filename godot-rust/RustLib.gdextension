@@ -1,0 +1,8 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.2
+reloadable = true
+
+[libraries]
+macos.debug.arm64 = "res://../rust-extension/target/debug/librust_extension.dylib"
+web.debug.wasm32 = "res://../rust-extension/target/wasm32-unknown-emscripten/debug/rust_extension.wasm"
